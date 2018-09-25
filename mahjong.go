@@ -167,6 +167,10 @@ func main() {
 	//raw := "11222333789s fa fa"
 	raw := "2355789p 356778s"
 	mj := convert(raw)
+	if mj == nil {
+		fmt.Fprintln(os.Stderr, "参数错误")
+		os.Exit(1)
+	}
 	for _, m := range mj {
 		cnt[m]++
 		if cnt[m] > 4 {
