@@ -36,6 +36,7 @@ func main() {
 
 	jpgFile, err := os.Create(fileName + ".jpg")
 	checkError(err)
+	defer jpgFile.Close()
 
 	err = jpeg.Encode(jpgFile, pngSrc, &jpeg.Options{Quality: 100})
 	checkError(err)
